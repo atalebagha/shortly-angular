@@ -23,7 +23,7 @@ angular.module('shortly.links', [])
       })
       .catch( function (err) {
         console.error(err);
-      })
-  }
+      });
+  };
   $scope.getLinks();
 });
