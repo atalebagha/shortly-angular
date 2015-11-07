@@ -24,6 +24,7 @@ angular.module('shortly.services', [])
     //then resp.data.navToLink  $Location.path(res.data.navToLink);
   };
 
+
   var getAllLinks = function() {
     return $http({
       method: 'GET',
@@ -39,7 +40,7 @@ angular.module('shortly.services', [])
     getAllLinks: getAllLinks
   };
   // getAllLinks
-  
+
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
