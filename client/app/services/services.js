@@ -24,11 +24,22 @@ angular.module('shortly.services', [])
     //then resp.data.navToLink  $Location.path(res.data.navToLink);
   };
 
+  var getAllLinks = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+    }).then(function (resp) {
+      return resp.data;  // user == user
+    });
+  };
+
   return {
     createLink: createLink,
-    goToLink: goToLink
+    goToLink: goToLink,
+    getAllLinks: getAllLinks
   };
   // getAllLinks
+  
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
