@@ -2,11 +2,11 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, $window, Links) {
   // Your code here
-  $scope.links = {};
+  $scope.data = {};
   $scope.getLinks = function() {
     Links.getAllLinks()
       .then(function (links) {
-        $scope.links = links;
+        $scope.data.links = links;
         console.log(links);
       })
       .catch(function (err) {
