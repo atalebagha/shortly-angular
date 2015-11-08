@@ -8,6 +8,9 @@ angular.module('shortly.shorten', [])
     .then(function (result) {
       $location.path('/links');
     })
+    // .then(function (resp) {
+    //   $scope.link.url = '';
+    // })
     .catch(function (err) {
       console.error(err);
     });
