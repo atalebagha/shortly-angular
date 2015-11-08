@@ -1,6 +1,6 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, $window, Links) {
+.controller('LinksController', function ($scope, $routeParams, $window, Links) {
   // Your code here
   $scope.data = {};
   $scope.getLinks = function() {
@@ -15,15 +15,14 @@ angular.module('shortly.links', [])
     // TODO
   };
 
-  $scope.openLink = function (code) {
-    Links.goToLink(code)
-      .then( function (result) {
-        console.log('Success');
-        $window.open(result.url);
-      })
-      .catch( function (err) {
-        console.error(err);
-      });
-  };
+  // $scope.openLink = function (code) {
+  //   Links.goToLink(code)
+  //     .then( function (result) {
+  //       console.log('Success');
+  //     })
+  //     .catch( function (err) {
+  //       console.error(err);
+  //     });
+  // };
   $scope.getLinks();
 });
