@@ -14,15 +14,17 @@ angular.module('shortly.services', [])
     });
   };
   // goToLink
-  var goToLink = function(code) {
-    return $http({
-      method: 'GET',
-      url: '/api/links/' + code
-    }).then(function(resp) {
-      return resp.data;
-    });
+  // var goToLink = function(code) {
+  //   console.log("code: ", code);
+  //   return $http({
+  //     method: 'GET',
+  //     url: '/api/links/' + code,
+  //     data: code
+  //   }).catch( function (err) {
+  //     console.error(err);
+  //   });
     //then resp.data.navToLink  $Location.path(res.data.navToLink);
-  };
+  // };
 
 
   var getAllLinks = function() {
@@ -36,7 +38,7 @@ angular.module('shortly.services', [])
 
   return {
     createLink: createLink,
-    goToLink: goToLink,
+    // goToLink: goToLink,
     getAllLinks: getAllLinks
   };
   // getAllLinks
