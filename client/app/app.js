@@ -5,7 +5,7 @@ angular.module('shortly', [
   'shortly.auth',
   'ngRoute'
 ])
-.config(function($routeProvider, $httpProvider) {
+.config(function($routeProvider,  $httpProvider, $locationProvider) {
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
@@ -17,17 +17,29 @@ angular.module('shortly', [
     })
     .when('/links', {
       templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      controller: 'LinksController',
+      authenticate: true
     })
     .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController'
+      controller: 'ShortenController',
+      authenticate: true
     })
+    // .when('/:code', {
+    //   redirectTo: '/api/links/' + $routeParams.code
+    // })
+    .otherwise({
+      redirectTo: '/links'
+    });
     // Your code here
     // controller for links
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+  });
 })
 .factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
